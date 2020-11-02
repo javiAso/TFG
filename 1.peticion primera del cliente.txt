@@ -1,0 +1,19 @@
+
+
+Necesitamos una aplicación web para el gestión de partidas de rol de mesa. Nos gustaría que haya 4 posibles roles en la aplicación:
+
+-Invitado: Este usuario no debería necesitar logearse en la aplicación y podría crear e imprimir una ficha de rol.
+
+-Usuario: Previo Login, podrá acceder a sus partidas y crear fichas de rol o aportar documentos, comentarios, etc a las mismas así como 
+ver su ficha y los documentos que los demas usuarios de esa partida hayan subido como públicos.
+
+-Narrador: Previo Login, podrá acceder a las partidas en las que esté registrado como Narrador y ver todos los documentos de las mismas.
+
+-Administrador: Podrá ver toda la documentación, usuarios, roles del sitio así como tratarlos o darlos de baja.
+
+Cuando se acceda al sitio, un usuario o narrador podrán ver un listado de las partidas a las que pertenecen y acceder a ellas o crear una
+nueva. Al crear una nueva partida, ese usuario se convertirá automáticamente en narrador de la misma.
+
+
+
+El admin podrá ver el listado de todas las partidas creadas en el sitio y editarlas etc. a su antojo.

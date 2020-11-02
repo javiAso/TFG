@@ -1,0 +1,28 @@
+
+Pasos instalación 
+
+1. Primero actualizamos el repositorio con:
+
+sudo apt-get update
+
+2. Instalamos apache2, se descarga directamente del repositorio de Ubunu, no hay que añadir ninguno nuevo:
+
+sudo apt-get intall apache2
+
+3. Podemos comprobar su funcionamiento con:
+
+sudo service apache2 status
+
+4. Instalamos php:
+
+sudo apt-get install php
+
+5. Instalamos php como un módulo de apache:
+
+sudo apt-get install libapache2-mod-php
+
+6.Instalamos los módulos deseados de apache:
+
+sudo apt-get install php-dev php-pear
+
+sudo pecl install xdebug

@@ -1,0 +1,107 @@
+
+
+		Javier Aso Burgos
+
+
+Paso 1: Creamos un archivo de configuración para nuestros sitios en 
+/etc/apache2/sites-availabe:
+
+sudo touch /etc/apache2/sites-availabe/misSitios.conf
+
+Paso 2:
+
+Editamos el archivo con sudo gedit /etc/apache2/sites-availabe/misSitios.conf y creamos la configuración deseada, en este caso:
+
+
+
+<VirtualHost *:80>
+
+ServerName www.musica.es
+DocumentRoot /var/www/musica
+DirectoryIndex indexMusica.html
+
+</VirtualHost>
+
+<VirtualHost *:80>
+
+ServerName www.informatica.dwes.es
+DocumentRoot /var/www/informatica
+DirectoryIndex indexInformatica.html
+
+</VirtualHost>
+
+<VirtualHost *:80>
+
+ServerName www.javi.com
+DocumentRoot /var/www/javi
+DirectoryIndex indexJavier.html
+
+</VirtualHost>
+
+Paso 3: Cambiamos el propietario de /var/www para que pertenezca al usuario en vez de a root:
+
+
+sudo chown alumno:www-data /var/www -R
+
+Y ahora damos permisos para que otros pueda trabajar:
+
+chmod -R 775 /var/www 
+
+Paso 4: Creamos los directorios donde guardaremos los recursos de cada virtualhost. Deben coincidir con lo especificado en DocumentRoot:
+
+mkdir /var/www/informatica /var/www/javi /var/www/musica
+
+Y creamos unos htmls simples para hacer de index que también tienen que coincidir en este caso con DirectoryIndex. Guardamos cada uno en su correspondiente /var/www/loQueSea
+
+Paso 5: Editamos el archivo /est/hosts para que nuestro navegador vaya a /var/www cuando introduzcamos el nombre del dominio de nuestros sitios web.
+
+sudo gedit /etc/hosts
+
+Quedaría así:
+
+127.0.0.1	localhost
+127.0.1.1	www.musica.es
+127.0.1.1	www.informatica.dwes.com
+127.0.1.1	www.javi.com
+
+Paso 6: Habilitamos nuestros sitios creando un enlace en /etc/apache2/sites-enabled:
+
+sudo ln /etc/apache2/sites-available/misSitios.conf /etc/apache2/sites-enabled
+
+Paso 7:
+
+Rebotamos el servicio apache para que se apliquen los cambios:
+
+sudo service apache2 reload.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

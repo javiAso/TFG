@@ -1,0 +1,14 @@
+Instalación
+
+sudo apt-get update
+sudo apt-get install git
+
+Configuración
+
+git config --global user.name "Javier Aso Burgos"
+git config --global user.email "asoycia@hotmail.com"
+git config --global color.status auto
+git config --global color.branch auto
+git config --global color.diff auto
+git config --global color.interactive auto
+gedit ~/.gitconfig

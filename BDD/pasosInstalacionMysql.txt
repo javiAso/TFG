@@ -1,0 +1,28 @@
+1. Instalamos mysql:
+
+sudo apt-get update
+sudo apt-get install mysql
+
+2. Instalamos phpmyadmin (Interfaz gráfica):
+
+sudo apt-get install phpmyadmin
+
+3.Abrimos mysql desde consola
+
+sudo mysql
+
+4. Damos permisos a root y le cambiamos la contraseña 
+
+update user set authentication string=password("root") where user="root"
+
+Alter user 'root'@'localhost' identified with mysql_native_password by 'root';
+
+Grant all privileges on *.* to 'root'@'%' identified by "root";
+
+5. Ahora dejamos que se conecten desde cualquier equipo:
+
+Modificamos mysql.conf.d/mysqld.cnf
+
+bin-address 0.0.0.0
+
+6.Por último creamos un link simbólico a /var/www de la carpeta /usr/share/phpmyadmin 
