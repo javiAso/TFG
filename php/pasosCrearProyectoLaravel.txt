@@ -1,0 +1,46 @@
+
+		**INSTALACIÓN**
+
+
+Lo primero que tenemos que hacer es instalar Composer en nuestro equipo:
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'c31c1e292ad7be5f49291169c0ac8f683499edddcfd4e42232982d0fd193004208a58ff6f353fde0012d35fdd72bc394') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+Estos pasos instalaran composer en nuestro directorio actual, ademas conviene revisarlos en el sitio web de composer (https://getcomposer.org/download/) ya que pueden cambiar.
+
+Una vez instalado composer, instalamos laravel. Laravel necesita algunos módulos de php, la lista completa está en https://laravel.com/docs/8.x/installation. Si nos falta alguno lo instalamos. En mi caso y utilizando un sistema UBUNTU 20.04 he necesitado el siguiente:
+
+sudo apt-get install php-bcmath
+
+Una vez hecho esto, descargamos el instalador de laravel:
+
+composer global require laravel/installer
+
+Ahora tenemos que poner el vendor bin de composer en el PATH para que localice la directiva laravel:
+
+export PATH=$PATH:/home/javi/.config/composer/vendor/bin
+
+Esta ruta puede cambiar, la podemos sacar con: 
+
+composer global about
+
+
+Ahora ya podemos crear nuevos proyectos de laravel con el comando
+
+laravel new nombreProyecto
+
+
+		**PERMISOS**
+		
+
+Los directorios dentro de storage y bootstrap/cache tienen que tener permisos de escritura por parte de nuestro servidor web.
+
+sudo chown -R javi:www-data storage/
+
+Ahora ya podemos ver la página de inicio por defecto de laravel
+
+
+

@@ -12,3 +12,7 @@ git config --global color.branch auto
 git config --global color.diff auto
 git config --global color.interactive auto
 gedit ~/.gitconfig
+
+Crear repositorio
+
+En el directorio a gestionar -> git init

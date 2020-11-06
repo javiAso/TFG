@@ -1,0 +1,40 @@
+Para configurar un virtualhost de laravel:
+
+Creamos en sites available en .conf para nuestro sitio de laravel:
+
+<VirtualHost *:80>
+    ServerName   your-domain.com
+    DocumentRoot "/var/www/html/your-domain.com/public/"
+    ErrorLog     "/var/www/html/your-domain.com/error.log"
+    CustomLog    "/var/www/html/your-domain.com/access.log" combined
+
+    <Directory "/var/www/html/your-domain.com/public">
+        Options +Indexes +FollowSymLinks
+        DirectoryIndex index.php
+        AllowOverride None
+        Require all granted
+
+        <IfModule mod_rewrite.c>
+            <IfModule mod_negotiation.c>
+                Options -MultiViews
+            </IfModule>
+
+            RewriteEngine On
+
+            # Handle Front Controller...
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule ^ index.php [L]
+
+            # Handle Authorization Header
+            RewriteCond %{HTTP:Authorization} .
+            RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+        </IfModule>
+    </Directory>
+
+</virtualhost>
+
+
+Activamos la configuración con a2ensite.
+
+Añadimos el sitio a /etc/hosts

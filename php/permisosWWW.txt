@@ -1,0 +1,7 @@
+ Cambiamos el propietario y el grupo de la carpeta:
+ 
+ sudo chown user:www-data /var/www -R
+ 
+ Damos permisos:
+ 
+ sudo chmod 775 /var/www -R
